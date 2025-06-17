@@ -80,7 +80,7 @@ public struct ChatResult: Codable, Equatable, Sendable {
         let parsingOptions = decoder.userInfo[.parsingOptions] as? ParsingOptions ?? []
         self.id = try container.decodeString(forKey: .id, parsingOptions: parsingOptions)
         self.object = try container.decodeString(forKey: .object, parsingOptions: parsingOptions)
-        self.created = try container.decode(Int.self, forKey: .created)
+        self.created = try container.decode(Int.self, forKey: .created, parsingOptions: parsingOptions)
         self.model = try container.decodeString(forKey: .model, parsingOptions: parsingOptions)
         self.choices = try container.decode([ChatResult.Choice].self, forKey: .choices)
         self.serviceTier = try container.decodeIfPresent(ServiceTier.self, forKey: .serviceTier)
