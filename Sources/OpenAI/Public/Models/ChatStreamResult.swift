@@ -230,7 +230,7 @@ public struct ChatStreamResult: Codable, Equatable, Sendable {
         
         self.id = try container.decodeString(forKey: .id, parsingOptions: parsingOptions)
         self.object = try container.decodeString(forKey: .object, parsingOptions: parsingOptions)
-        self.created = try container.decode(TimeInterval.self, forKey: .created)
+        self.created = try container.decodeTimeInterval(forKey: .created, parsingOptions: parsingOptions)
         self.model = try container.decodeString(forKey: .model, parsingOptions: parsingOptions)
         self.citations = try container.decodeIfPresent([String].self, forKey: .citations)
         self.choices = try container.decode([ChatStreamResult.Choice].self, forKey: .choices)
